@@ -1,6 +1,6 @@
-# 20 Minecraft Bedrock Edition (1.21.0+) Add-ons Collection
+# 40 Minecraft Bedrock Edition (1.21.0+) Add-ons Collection
 
-A complete, vanilla-styled collection of **20 standalone add-ons** for Minecraft Bedrock Edition (1.21.0+). Each add-on is delivered as both a one-click `.mcaddon` installer and a `.zip` package with full Behavior Pack (BP) and Resource Pack (RP) components, 16x16 pixel art textures, custom pack icons, crafted recipes, and **individual in-game guidebooks received automatically upon player spawn**.
+A complete, vanilla-styled collection of **40 standalone add-ons** for Minecraft Bedrock Edition (1.21.0+). Each add-on is delivered as both a one-click `.mcaddon` installer and a `.zip` package with full Behavior Pack (BP) and Resource Pack (RP) components, 16x16 pixel art textures, custom pack icons, crafted recipes, and **individual in-game guidebooks received automatically upon player spawn**.
 
 ---
 
@@ -23,8 +23,9 @@ A complete, vanilla-styled collection of **20 standalone add-ons** for Minecraft
 
 ---
 
-## Catalog of the 20 Add-ons
+## Full Catalog of the 40 Add-ons
 
+### Batch 1: Core Survival & Adventuring (Add-ons 01–20)
 | # | Add-on Name | Namespace | Category | In-Game Guide Book | Deliverables |
 | :-: | :--- | :---: | :---: | :--- | :--- |
 | **01** | **Campfire Survival & Foods** | `cs` | Survival / Food | *Campfire Survival Guide* | `.mcaddon` + `.zip` |
@@ -50,187 +51,213 @@ A complete, vanilla-styled collection of **20 standalone add-ons** for Minecraft
 
 ---
 
-## Detailed Add-on Overviews & Recipes
+### Batch 2: Advanced Mechanics & Complex Systems (Add-ons 21–40)
+| # | Add-on Name | Namespace | Category | In-Game Guide Book | Deliverables |
+| :-: | :--- | :---: | :---: | :--- | :--- |
+| **21** | **Industrial Automation & Steam Machinery** | `sm` | Tech / Automation | *Industrial Steam Works* | `.mcaddon` + `.zip` |
+| **22** | **Arcane Infusion & Runecrafting** | `ai` | Magic / Crafting | *Arcane Infusion Grimoire* | `.mcaddon` + `.zip` |
+| **23** | **Dragon Kin & Wyvern Breeding** | `wb` | Creatures / Breeding | *Wyvern Breeder's Handbook* | `.mcaddon` + `.zip` |
+| **24** | **Dimensional Portals & Rift Anchors** | `dr` | Interdimensional | *Interdimensional Rift Annals* | `.mcaddon` + `.zip` |
+| **25** | **Biome Botany & Genetic Crops** | `gc` | Botany / Genetics | *Botanist's Genetics Journal* | `.mcaddon` + `.zip` |
+| **26** | **Advanced Mecha Armor & Exoskeletons** | `ma` | Cybernetics / Armor | *Cybernetic Rig Manual* | `.mcaddon` + `.zip` |
+| **27** | **Deep Dark Catacombs & Warden Relics** | `wr` | Deep Dark / Sculk | *Sculk Resonance Tome* | `.mcaddon` + `.zip` |
+| **28** | **Modular Bows & Ballistics** | `mo` | Ballistics / Archery | *Ballistic Engineer's Field Guide*| `.mcaddon` + `.zip` |
+| **29** | **Siege Engineering & Cannons** | `sc` | Artillery / Cannons | *Siege Artillery Codex* | `.mcaddon` + `.zip` |
+| **30** | **Celestial Astrology & Moon Magic** | `ca` | Astrology / Starlight | *Celestial Starlight Almanac* | `.mcaddon` + `.zip` |
+| **31** | **Cooking Automata & Bakery Machinery** | `bm` | Automated Cooking | *Automated Bakery Gazette* | `.mcaddon` + `.zip` |
+| **32** | **Necromancy & Soul Binding** | `ns` | Dark Magic / Souls | *Necromantic Rituals* | `.mcaddon` + `.zip` |
+| **33** | **Submarine Technology & Deep Abyss** | `st` | Marine Engineering | *Submariner's Blueprint Manual* | `.mcaddon` + `.zip` |
+| **34** | **Biochemical Alchemy & Mutation Serums**| `bs` | Biochemistry / Serums | *Mutagen Lab Records* | `.mcaddon` + `.zip` |
+| **35** | **Castle Defense Automatons & Golems** | `ca2` | Golems / Sentries | *Automaton Sentry Blueprints* | `.mcaddon` + `.zip` |
+| **36** | **Energy Shields & Forcefield Emitters** | `fs` | Energy / Forcefields | *Forcefield Array Manual* | `.mcaddon` + `.zip` |
+| **37** | **Meteorology & Weather Systems** | `wm` | Weather Manipulation| *Meteorologist's Weather Atlas*| `.mcaddon` + `.zip` |
+| **38** | **Archaeology & Fossil Reconstruction** | `af2` | Paleontology | *Archaeologist's Field Journal* | `.mcaddon` + `.zip` |
+| **39** | **Wilderness Survival & Thermal Insulation**| `ti` | Thermal Insulation | *Extreme Climates Guide* | `.mcaddon` + `.zip` |
+| **40** | **Mythological Boss Raids & Primordial Totems**| `mr` | Epic Boss Raids | *Primordial Titan Lore* | `.mcaddon` + `.zip` |
 
-### 01. Campfire Survival & Foods (`cs`)
-- **Guide Book**: *Campfire Survival Guide* by Wilderness Ranger (given on spawn, or craft with 1 Book + 1 Paper).
-- **Items**:
-  - `cs:leather_canteen`: Quenches thirst and cleanses ailments. Crafted with `Leather` and `Glass Bottle`.
-  - `cs:trail_mix`: Nutritious dried snack. Crafted with `Wheat Seeds`, `Sweet Berries`, and `Cocoa Beans`.
-  - `cs:roast_skewer`: Hearty meal on a stick. Crafted with `Cooked Beef`, `Cooked Porkchop`, and `Stick`.
-  - `cs:marshmallow_stick`: Sweet treat roasted over campfires. Crafted with `Sugar`, `Egg`, and `Stick`.
-  - `cs:hearty_stew`: Super-saturating stew. Crafted with `Carrot`, `Cooked Beef`, `Baked Potato`, `Mushroom`, and `Bowl`.
+---
 
-### 02. Backpacks & Pouches (`bp`)
-- **Guide Book**: *Backpacker's Guide* by Nomad Taylor.
-- **Items**:
-  - `bp:small_leather_pouch`: Compact storage satchel. Crafted with `Leather` and `String`.
-  - `bp:traveler_backpack`: Medium expedition pack. Crafted with `Leather`, `Iron Ingot`, and `Chest`.
-  - `bp:miner_satchel`: Ore carrying bag. Crafted with `Iron Ingot`, `Copper Ingot`, and `Leather`.
-  - `bp:ender_pouch`: Bound to your Ender Chest dimensional rift. Crafted with `Ender Eye`, `Leather`, and `Ender Chest`.
-  - `bp:expedition_backpack`: Large capacity pack. Crafted with `Diamond`, `Gold Ingot`, and `Chest`.
+## Detailed Mechanics for Complex Add-ons (21–40)
 
-### 03. Waystones & Teleport Scrolls (`ws`)
-- **Guide Book**: *Warp Master's Tome* by Archmage Varis.
-- **Items**:
-  - `ws:recall_scroll`: Returns user to world spawn point. Crafted with `Lapis Lazuli`, `Paper`, and `Gold Nugget`.
-  - `ws:warp_stone`: Bound pearl gem for short-range leaps. Crafted with `Diamond`, `Ender Pearl`, and `Emerald`.
-  - `ws:cave_escape_scroll`: Emergency upward extraction beacon. Crafted with `Feather`, `Paper`, and `Redstone`.
-  - `ws:rift_shard`: Spatial crafting catalyst. Crafted with `Amethyst Shard`, `Ender Pearl`, and `Prismarine Crystals`.
-  - `ws:teleport_tablet`: Permanent rune tablet. Crafted with `Obsidian`, `Diamond`, and `Ender Pearl`.
+### 21. Industrial Automation & Steam Machinery (`sm`)
+- **Guide Book**: *Industrial Steam Works* by Chief Mechanist Vance.
+- **Key Mechanics**:
+  - `sm:engineer_wrench`: Tool to orient machinery and configure steam pressure pipes.
+  - `sm:steam_boiler`: Thermal boiler consuming fuel to generate pressurized steam.
+  - `sm:mechanical_macerator`: Heavy crusher processing raw ores into doubled refined powders.
+  - `sm:conveyor_belt`: Factory floor conveyor moving items automatically.
+  - `sm:steam_pipe`: Sealed copper conduits transporting steam power between machines.
 
-### 04. Elemental Weapons (`ew`)
-- **Guide Book**: *Armory of Elements* by Grand Smith Thorin.
-- **Items**:
-  - `ew:flameblade` (8 Damage): Ignites monsters on impact. Crafted with `Blaze Rod`, `Magma Cream`, and `Nether Brick`.
-  - `ew:frost_dagger` (6 Damage): Fast chill strikes. Crafted with `Blue Ice`, `Prismarine Shard`, and `Stick`.
-  - `ew:thunder_hammer` (10 Damage): Heavy electric shock impact. Crafted with `Lightning Rod`, `Copper Block`, and `Iron Ingot`.
-  - `ew:tempest_spear` (7 Damage): Piercing gust weapon. Crafted with `Feather`, `Breeze Rod`, and `Stick`.
-  - `ew:elemental_core`: Primal forging catalyst.
+### 22. Arcane Infusion & Runecrafting (`ai`)
+- **Guide Book**: *Arcane Infusion Grimoire* by Runemaster Eldrin.
+- **Key Mechanics**:
+  - `ai:runic_chisel`: Diamond-tipped tool for carving sacred inscriptions onto stone tablets.
+  - `ai:infusion_pedestal`: Ritual altar centerpiece for binding item enchantments.
+  - `ai:solar_glyph`: Radiance rune granting illumination and fire warding.
+  - `ai:mana_matrix`: Emerald and diamond catalyst for high-tier transmutations.
+  - `ai:blank_runestone`: Base stone tablet used for glyph inscription.
 
-### 05. Excavation & Mining Gear (`eg`)
-- **Guide Book**: *Prospector's Handbook* by Chief Digger Flint.
-- **Items**:
-  - `eg:iron_heavy_hammer` (5 Damage): Broad tunnel miner. Crafted with `Iron Block` and `Stick`.
-  - `eg:diamond_heavy_hammer` (7 Damage): Reinforced quarry hammer. Crafted with `Diamond Block` and `Obsidian`.
-  - `eg:excavator_shovel` (4 Damage): Wide trench shovel. Crafted with `Iron Block` and `Stick`.
-  - `eg:ore_prospector`: Mineral detector lens. Crafted with `Copper Ingot`, `Gold Ingot`, and `Amethyst Shard`.
-  - `eg:ore_magnet`: Attracts dropped mined items. Crafted with `Redstone`, `Iron Ingot`, and `Lapis Lazuli`.
+### 23. Dragon Kin & Wyvern Breeding (`wb`)
+- **Guide Book**: *Wyvern Breeder's Handbook* by Dragonlord Ignis.
+- **Key Mechanics**:
+  - `wb:wyvern_whistle`: Sounds high-altitude call frequencies to summon flying wyverns.
+  - `wb:incubator_core`: Thermal nest maintaining steady warmth to hatch dragon eggs.
+  - `wb:wyvern_saddle`: Reinforced diamond saddle for supersonic aerial flight.
+  - `wb:dragon_treat`: Vitality food restoring health to flying companions.
+  - `wb:wyvern_scale`: Primeval dragon scales for forging heat-resistant armor.
 
-### 06. Magical Wands & Spells (`mw`)
-- **Guide Book**: *Compendium of Sorcery* by Archmage Cynthia.
-- **Items**:
-  - `mw:wand_apprentice` (4 Damage): Starter focus. Crafted with `Amethyst Shard` and `Stick`.
-  - `mw:wand_pyromancy` (6 Damage): Fire charge emitter. Crafted with `Fire Charge` and `Blaze Rod`.
-  - `mw:wand_cryomancy` (6 Damage): Ice beam wand. Crafted with `Prismarine Crystals`, `Blue Ice`, and `Stick`.
-  - `mw:healing_scepter` (3 Damage): Restores player health. Crafted with `Glistering Melon`, `Ghast Tear`, and `Gold Ingot`.
-  - `mw:mana_crystal`: Pure arcane energy stone.
+### 24. Dimensional Portals & Rift Anchors (`dr`)
+- **Guide Book**: *Interdimensional Rift Annals* by Voidstrider Chronos.
+- **Key Mechanics**:
+  - `dr:dimensional_anchor`: Establishes permanent coordinate anchors across realms.
+  - `dr:void_dial`: Measures temporal spatial stability to prevent portal collapse.
+  - `dr:rift_stabilizer`: Mitigates dimensional backlash when teleporting long distances.
+  - `dr:phased_compass`: Points toward active cross-realm beacons.
+  - `dr:warp_resonator`: Harmonic catalyst for interdimensional crafting.
 
-### 07. Crops & Cooking (`cc`)
-- **Guide Book**: *Master Chef's Culinary* by Chef Remy Green.
-- **Items**:
-  - `cc:strawberry`: Sweet berry snack. Crafted with `Sweet Berries` and `Sugar`.
-  - `cc:corn_cob`: Crunchy ear of grain. Crafted with `Wheat` and `Yellow Dye`.
-  - `cc:tomato`: Fresh red salad tomato. Crafted with `Apple`, `Red Dye`, and `Wheat Seeds`.
-  - `cc:chef_knife` (4 Damage): Culinary prep tool. Crafted with `Iron Ingot` and `Stick`.
-  - `cc:gourmet_sandwich`: Super nutritious meal. Crafted with `Bread`, `Tomato/Apple`, `Cooked Porkchop`, and `Wheat`.
+### 25. Biome Botany & Genetic Crops (`gc`)
+- **Guide Book**: *Botanist's Genetics Journal* by Dr. Linnaeus Bloom.
+- **Key Mechanics**:
+  - `gc:gene_extractor`: Extracts plant chromosomes from wild flora.
+  - `gc:pollination_frame`: Cross-pollinates neighboring crops for mutant hybrid strains.
+  - `gc:hybrid_seed_pod`: Mutated high-yield seeds producing multi-harvest crops.
+  - `gc:nutrient_fertilizer`: Chemical bone meal accelerating mutation rates.
+  - `gc:greenhouse_glass`: Spectral glass concentrating daylight for maximum growth.
 
-### 08. More Bows & Quivers (`mb`)
-- **Guide Book**: *Archer's Field Journal* by Ranger Hawkeye.
-- **Items**:
-  - `mb:reinforced_bow` (6 Damage): Iron-reinforced bow. Crafted with `Iron Ingot` and `String`.
-  - `mb:explosive_bow` (7 Damage): Shoots explosive blast arrows. Crafted with `TNT`, `Blaze Powder`, and `String`.
-  - `mb:poison_shortbow` (5 Damage): Applies venom to targets. Crafted with `Spider Eye`, `Fermented Spider Eye`, and `String`.
-  - `mb:archer_quiver`: Arrow ammo container. Crafted with `Leather` and `Arrow`.
-  - `mb:barbed_arrow`: Broadhead arrow dealing extra bleed damage.
+### 26. Advanced Mecha Armor & Exoskeletons (`ma`)
+- **Guide Book**: *Cybernetic Rig Manual* by Master Armorer Vulcan.
+- **Key Mechanics**:
+  - `ma:exoskeleton_frame`: Powered wearable frame boosting carry capacity and defense.
+  - `ma:jet_thruster`: Leg-mounted hydraulic rockets providing emergency vertical jumps.
+  - `ma:hydraulic_servo`: Mechanical joint servos absorbing heavy kinetic shock.
+  - `ma:energy_cell`: High-density battery powering exoskeleton systems.
+  - `ma:shock_absorber`: Slime-buffered dampener mitigating fall damage.
 
-### 09. Medieval Defense & Traps (`md`)
-- **Guide Book**: *Fortress Master's Codex* by Commander Valerius.
-- **Items**:
-  - `md:iron_caltrops`: Sharp spikes damaging attackers. Crafted with `Iron Nugget`.
-  - `md:bear_trap`: Snaps shut on hostile mobs. Crafted with `Iron Ingot` and `String`.
-  - `md:tower_shield`: Massive defensive barrier. Crafted with `Iron Ingot`, `Oak Planks`, and `Shield`.
-  - `md:wooden_spikes`: Sharpened stakes for wall defense. Crafted with `Stick` and `Oak Log`.
-  - `md:reinforced_barricade`: Sturdy fortification barricade. Crafted with `Iron Bars` and `Oak Planks`.
+### 27. Deep Dark Catacombs & Warden Relics (`wr`)
+- **Guide Book**: *Sculk Resonance Tome* by Deep Hollow Chronicler.
+- **Key Mechanics**:
+  - `wr:sonic_staff` (10 Damage): Discharges concentrated sonic boom blasts.
+  - `wr:sculk_chime`: Emits acoustic vibrations to distract mobs and reveal cavities.
+  - `wr:shadowcloak`: Nullifies footstep vibrations, granting silent sprinting.
+  - `wr:soul_cage`: Traps ambient sculk soul energy for arcane experiments.
+  - `wr:sculk_tendril`: Flexible acoustic transmitter.
 
-### 10. Mobility & Grappling (`mg`)
-- **Guide Book**: *Acrobat's Field Manual* by Skystrider Zephyr.
-- **Items**:
-  - `mg:grappling_hook` (3 Damage): Scales mountain peaks and cliffs. Crafted with `Iron Ingot`, `String`, and `Chain`.
-  - `mg:dash_feather`: Horizontal sprint burst. Crafted with `Feather`, `Glowstone Dust`, and `Breeze Rod`.
-  - `mg:spring_boots`: Slime-cushioned high leaping boots. Crafted with `Leather`, `Slime Ball`, and `Piston`.
-  - `mg:glider_cape`: Silk gliding canvas. Crafted with `Bamboo` and `String`.
-  - `mg:kinetic_coil`: Kinetic recoil spring component.
+### 28. Modular Bows & Ballistics (`mo`)
+- **Guide Book**: *Ballistic Engineer's Field Guide* by Marksman Vance.
+- **Key Mechanics**:
+  - `mo:compound_frame` (9 Damage): High-draw composite bow frame.
+  - `mo:composite_grip`: Ergonomic handle improving aiming stability.
+  - `mo:optic_sight`: Amethyst magnification scope for precision marksmanship.
+  - `mo:ballistic_bolt`: Heavy iron penetrator arrow dealing devastating damage.
+  - `mo:tension_cable`: High-tensile braided string.
 
-### 11. Enchanted Rings & Relics (`rr`)
-- **Guide Book**: *Jeweler's Reliquary* by Grand Lapidary Aurelius.
-- **Items**:
-  - `rr:ring_swiftness`: Perpetual speed enhancement. Crafted with `Gold Ingot` and `Lapis Lazuli`.
-  - `rr:ring_vitality`: Perpetual regeneration blessing. Crafted with `Gold Ingot` and `Emerald`.
-  - `rr:fireguard_talisman`: High heat protection amulet. Crafted with `Chain` and `Magma Cream`.
-  - `rr:night_spectacles`: Night vision eyewear. Crafted with `Copper Ingot`, `Amethyst Shard`, and `Glass`.
-  - `rr:jeweled_band`: Base crafting jewelry blank.
+### 29. Siege Engineering & Cannons (`sc`)
+- **Guide Book**: *Siege Artillery Codex* by Master Gunner Cromwell.
+- **Key Mechanics**:
+  - `sc:cannon_barrel`: Thick cast-iron artillery barrel.
+  - `sc:cannonball`: Heavy spherical projectile causing massive impact cratering.
+  - `sc:powder_keg`: Concentrated propellant charge for long-range artillery volleys.
+  - `sc:aiming_quadrant`: Calibrates mortar trajectory and elevation angles.
+  - `sc:firing_ramrod`: Ramrod for clearing barrels and packing ammunition.
 
-### 12. Rustic Furniture (`rf`)
-- **Guide Book**: *Rustic Carpenter's Manual* by Master Carpenter Edwin.
-- **Items**:
-  - `rf:wooden_stool`: Cozy wooden stool. Crafted with `Oak Slab` and `Stick`.
-  - `rf:dining_table`: Sturdy 4-legged table. Crafted with `Oak Planks` and `Stick`.
-  - `rf:paper_lantern`: Ambient warm hanging light. Crafted with `Stick`, `Paper`, and `Torch`.
-  - `rf:rustic_shelf`: Wall display shelf for rare items. Crafted with `Oak Slab` and `Stick`.
-  - `rf:storage_crate`: Reinforced wooden storage box. Crafted with `Oak Planks`, `Iron Nugget`, and `Chest`.
+### 30. Celestial Astrology & Moon Magic (`ca`)
+- **Guide Book**: *Celestial Starlight Almanac* by Astrologer Cassiopeia.
+- **Key Mechanics**:
+  - `ca:observatory_lens`: Focuses lunar and solar rays onto ritual altars.
+  - `ca:star_chart`: Constellation map granting nocturnal buffs under open skies.
+  - `ca:lunar_talisman`: Channels moonlight to grant night vision and leaping.
+  - `ca:starlight_crystal`: Condensed astral mana core.
+  - `ca:astrolabe`: Brass navigation instrument tracking planetary orbits.
 
-### 13. Nether Relics & Forging (`nr`)
-- **Guide Book**: *Nether Smith's Black Tome* by Pyromancer Malakor.
-- **Items**:
-  - `nr:soulfire_blade` (9 Damage): Blue soulfire greatsword. Crafted with `Nether Brick` and `Blaze Rod`.
-  - `nr:magma_shield`: Blazing fire-retardant shield. Crafted with `Magma Block` and `Shield`.
-  - `nr:witherbane_talisman`: Wither toxin nullifier. Crafted with `Nether Star`, `Wither Skeleton Skull`, and `Soul Sand`.
-  - `nr:soul_ingot`: Netherite & soul alloy. Crafted with `Gold Ingot`, `Soul Sand`, and `Netherite Scrap`.
-  - `nr:blaze_core`: Compressed thermal fuel core.
+### 31. Cooking Automata & Bakery Machinery (`bm`)
+- **Guide Book**: *Automated Bakery Gazette* by Master Baker Pierre.
+- **Key Mechanics**:
+  - `bm:grain_mill`: Mills wheat into ultra-fine baking flour automatically.
+  - `bm:industrial_oven`: High-throughput brick oven baking pastries at triple speed.
+  - `bm:butter_churner`: Mechanically separates milk into cream and butter.
+  - `bm:artisan_pastry`: Multi-layered sweet pastry granting prolonged saturation.
+  - `bm:bakers_paddle`: Wooden paddle for retrieving baked goods safely.
 
-### 14. Ocean Diving & Harpoons (`od`)
-- **Guide Book**: *Abyssal Diver's Log* by Captain Marina.
-- **Items**:
-  - `od:diving_helmet`: Prolonged underwater respiration. Crafted with `Copper Ingot`, `Glass Pane`, and `Prismarine Crystals`.
-  - `od:diving_fins`: High speed aquatic fins. Crafted with `Prismarine Shard` and `Leather`.
-  - `od:harpoon_gun` (8 Damage): Dragless underwater projectile launcher. Crafted with `Copper Ingot`, `Iron Ingot`, and `Prismarine Shard`.
-  - `od:harpoon_bolt`: Heavy barbed ammunition.
-  - `od:abyssal_lantern`: Intense luminescent lantern. Crafted with `Prismarine Shard` and `Glow Ink Sac`.
+### 32. Necromancy & Soul Binding (`ns`)
+- **Guide Book**: *Necromantic Rituals* by Lich Lord Mortis.
+- **Key Mechanics**:
+  - `ns:necromancer_staff` (8 Damage): Summons friendly skeleton minions.
+  - `ns:soul_phylactery`: Stores departed spirit life-force.
+  - `ns:ritual_chalk`: Draws necromantic circles for reanimation rites.
+  - `ns:bone_effigy`: Ward totem repelling hostile undead.
+  - `ns:essence_of_decay`: Distilled necrotic catalyst.
 
-### 15. Alchemical Flasks & Bombs (`af`)
-- **Guide Book**: *Alchemist's Formulae* by Grand Chemist Paracelsus.
-- **Items**:
-  - `af:fire_flask`: Shatters into fire upon impact. Crafted with `Gunpowder` and `Blaze Powder`.
-  - `af:smoke_bomb`: Dense smoke screen. Crafted with `Coal`, `Paper`, and `Gunpowder`.
-  - `af:frost_vial`: Rapid freeze explosive. Crafted with `Blue Ice`, `Snowball`, and `Glass Bottle`.
-  - `af:healing_elixir`: Instant emergency restorative chug. Crafted with `Glistering Melon`, `Golden Apple`, `Ghast Tear`, and `Glass Bottle`.
-  - `af:alchemical_residue`: Catalyst component.
+### 33. Submarine Technology & Deep Abyss (`st`)
+- **Guide Book**: *Submariner's Blueprint Manual* by Chief Diver Cousteau.
+- **Key Mechanics**:
+  - `st:dive_ballast`: Regulates buoyancy for deep trench diving.
+  - `st:sonar_radar`: Pings submerged monuments, shipwrecks, and sea creatures.
+  - `st:torpedo_bolt` (10 Damage): High-velocity underwater projectile.
+  - `st:pressure_hull_plate`: Heavy copper and iron hull armor resisting ocean pressure.
+  - `st:sub_depth_gauge`: Displays ocean depth and water pressure.
 
-### 16. Pet Care & Taming (`pc`)
-- **Guide Book**: *Master Pet Care Guide* by Beastmaster Kael.
-- **Items**:
-  - `pc:training_whistle`: Sounds recall frequencies for tamed companions. Crafted with `Iron Ingot`.
-  - `pc:armored_collar`: Protective dog collar. Crafted with `Leather` and `Iron Ingot`.
-  - `pc:vitality_biscuit`: Nutritious wolf snack. Crafted with `Wheat`, `Bone Meal`, and `Cooked Beef`.
-  - `pc:pet_carrier`: Safely transport small animal mobs. Crafted with `Iron Bars`, `Leather`, and `Chest`.
-  - `pc:brush_grooming`: Fur grooming brush. Crafted with `Feather` and `Stick`.
+### 34. Biochemical Alchemy & Mutation Serums (`bs`)
+- **Guide Book**: *Mutagen Lab Records* by Dr. Frankenstein Jekyll.
+- **Key Mechanics**:
+  - `bs:centrifuge_alembic`: Separates organic cellular fluids into concentrated reagents.
+  - `bs:mutation_serum`: Supercharges player strength, speed, and defense temporarily.
+  - `bs:hazmat_mask`: Wards against lethal gas fumes and chemical splashes.
+  - `bs:bio_catalyst`: Mutagen synthesis catalyst.
+  - `bs:antidote_vial`: Neutralizes harmful status effects instantly.
 
-### 17. Utility & Redstone Gadgets (`ug`)
-- **Guide Book**: *Engineer's Blueprints* by Chief Engineer Nikola.
-- **Items**:
-  - `ug:pocket_workbench`: Access 3x3 crafting anywhere directly from your hotbar. Crafted with `Leather` and `Crafting Table`.
-  - `ug:void_trash_can`: Instantly incinerates unwanted blocks/items. Crafted with `Iron Ingot`, `Cauldron`, and `Lava Bucket`.
-  - `ug:auto_feeder`: Automated hunger management gadget. Crafted with `Redstone`, `Dropper`, and `Hopper`.
-  - `ug:brass_lantern`: Portable miner's light. Crafted with `Copper Ingot` and `Torch`.
-  - `ug:redstone_gear`: Clockwork mechanical cogwheel.
+### 35. Castle Defense Automatons & Golems (`ca2`)
+- **Guide Book**: *Automaton Sentry Blueprints* by Grand Clockmaker Daedalus.
+- **Key Mechanics**:
+  - `ca2:golem_heart`: Mechanical clockwork core powering automaton guardians.
+  - `ca2:sentry_core`: Automated brass turret targeting hostile invaders.
+  - `ca2:command_baton`: Commands defense automatons to guard or follow.
+  - `ca2:repair_kit`: Repairs battle damage on clockwork sentries.
+  - `ca2:brass_gear`: Precision cogwheel component.
 
-### 18. Expanded Metallurgy (`em`)
-- **Guide Book**: *Metallurgist's Guide* by Master Founder Balthazar.
-- **Items**:
-  - `em:copper_broadsword` (5 Damage): Durable early game blade. Crafted with `Copper Ingot` and `Stick`.
-  - `em:amethyst_blade` (7 Damage): Resonant crystal strikes. Crafted with `Amethyst Shard` and `Gold Ingot`.
-  - `em:ruby_gem`: Blood ruby mined in deep caves. Crafted with `Redstone Block` and `Diamond`.
-  - `em:ruby_battleaxe` (9 Damage): Scorching ruby battleaxe. Crafted with `Ruby Gem` and `Stick`.
-  - `em:steel_ingot`: Refined steel alloy. Crafted with `Coal` and `Iron Ingot`.
+### 36. Energy Shields & Forcefield Emitters (`fs`)
+- **Guide Book**: *Forcefield Array Manual* by Barrier Architect Maxwell.
+- **Key Mechanics**:
+  - `fs:forcefield_emitter`: Projects luminous spherical barriers deflecting explosions.
+  - `fs:shield_modulator`: Permits friendly players to traverse active forcefields.
+  - `fs:kinetic_barrier`: Portable energy shield reflecting incoming arrows.
+  - `fs:flux_capacitor`: Stores massive electrical charge for barrier arrays.
+  - `fs:deflector_shard`: Prismarine crystal refracting energy pulses.
 
-### 19. Bounty Hunter Contracts (`bh`)
-- **Guide Book**: *Bounty Guild Handbook* by Guildmaster Drake.
-- **Items**:
-  - `bh:bounty_scroll_zombie`: Purge undead hordes. Crafted with `Rotten Flesh`, `Paper`, and `Feather`.
-  - `bh:bounty_scroll_creeper`: Exterminate explosive creepers. Crafted with `Gunpowder`, `Paper`, and `Feather`.
-  - `bh:hunter_badge`: Official guild rank badge. Crafted with `Gold Ingot` and `Emerald`.
-  - `bh:slayer_medallion`: Diamond-studded master slayer trophy. Crafted with `Chain`, `Diamond`, and `Gold Ingot`.
-  - `bh:hunter_token`: Guild currency token.
+### 37. Meteorology & Weather Systems (`wm`)
+- **Guide Book**: *Meteorologist's Weather Atlas* by Cloudweaver Zephyrus.
+- **Key Mechanics**:
+  - `wm:storm_horn`: Blasts resonant frequencies to summon cooling thunderstorm rain.
+  - `wm:barometer_brass`: Accurate atmospheric sensor predicting weather changes.
+  - `wm:lightning_accumulator`: Stores raw lightning strikes into reusable power cells.
+  - `wm:cloud_condenser`: Condenses ambient moisture into potable water.
+  - `wm:storm_crystal`: Electrically charged storm crystal.
 
-### 20. Boss Artifacts & Totems (`ba`)
-- **Guide Book**: *Ancient Relic Mythos* by High Scholar Ozymandias.
-- **Items**:
-  - `ba:dragon_relic_core`: Ender dragon spatial power. Crafted with `Ender Pearl`, `Diamond Block`, and `Dragon Breath`.
-  - `ba:totem_of_wrath`: Nether Star infused battle totem. Crafted with `Gold Block`, `Totem of Undying`, and `Nether Star`.
-  - `ba:berserker_charm`: Multiplies critical hit strength. Crafted with `Redstone Block` and `Netherite Ingot`.
-  - `ba:void_pendant`: Spatial defense ward. Crafted with `Chain`, `Crying Obsidian`, and `Ender Eye`.
-  - `ba:ancient_relic_fragment`: Scraps of primeval relics. Crafted with `Netherite Scrap` and `Echo Shard`.
+### 38. Archaeology & Fossil Reconstruction (`af2`)
+- **Guide Book**: *Archaeologist's Field Journal* by Professor Indiana Bones.
+- **Key Mechanics**:
+  - `af2:sieve_table`: Sifts sand and gravel to reveal ancient bones and amber.
+  - `af2:cleaning_solvent`: Dissolves encrusted stone off delicate fossil remains.
+  - `af2:amber_core`: Preserved primeval resin containing ancient genetic sequences.
+  - `af2:fossil_brush_fine`: Precision brush for delicate archaeological digs.
+  - `af2:dino_skull_relic`: Prehistoric skeleton display trophy.
+
+### 39. Wilderness Survival & Thermal Insulation (`ti`)
+- **Guide Book**: *Extreme Climates Guide* by Alpine Scout Nanook.
+- **Key Mechanics**:
+  - `ti:insulated_tunic`: Wool-lined parka warding against sub-zero freezing.
+  - `ti:heat_pack`: Chemical reaction pack warming core temperature during blizzards.
+  - `ti:cooling_pouch`: Glacial ice pouch preventing heatstroke in Nether deltas.
+  - `ti:water_purifier`: Ceramic filter purifying river water for safe hydration.
+  - `ti:thermal_lining`: Woolen insulating inner lining.
+
+### 40. Mythological Boss Raids & Primordial Totems (`mr`)
+- **Guide Book**: *Primordial Titan Lore* by High Oracle Theodosius.
+- **Key Mechanics**:
+  - `mr:titan_monolith`: Summoning pillar awakening primordial raid titans.
+  - `mr:demigod_battleaxe` (12 Damage): Colossal weapon forged from titan fragments.
+  - `mr:divine_aegis`: Divine shield bestowing immense damage absorption.
+  - `mr:primordial_seal`: Cosmic talisman holding titan energies in balance.
+  - `mr:titan_core_shard`: Relic shard dropped by defeated titans.
 
 ---
 
@@ -239,11 +266,11 @@ A complete, vanilla-styled collection of **20 standalone add-ons** for Minecraft
 - **Format Versions**: `format_version: 2` for manifests; `format_version: "1.21.0"` for components
 - **Textures**: 16x16 PNG pixel art conforming to vanilla palette standards
 - **Icons**: 128x128 pack icons with high-contrast bordering and custom gem emblems
-- **UUIDs**: 80 cryptographically distinct, deterministic UUIDs (guaranteed unique across all 20 add-ons)
+- **UUIDs**: 160 cryptographically distinct, deterministic UUIDs (guaranteed unique across all 40 add-ons)
 - **Guidebooks**: Bedrock `minecraft:written_book` integration with colored title formatting (`§l`, `§6`, `§2`, etc.) + companion custom guidebook items.
 
 ## Verification
-You can re-verify all 20 add-ons at any time by running:
+You can re-verify all 40 add-ons at any time by running:
 ```bash
 python3 scripts/verify_addons.py
 ```

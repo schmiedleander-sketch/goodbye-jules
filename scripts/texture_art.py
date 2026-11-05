@@ -1,6 +1,6 @@
 """
-Vanilla 16x16 pixel art generator and 128x128 addon pack icon generator.
-Uses PIL to produce authentic pixel textures conforming to Minecraft palette styling.
+Extended Vanilla 16x16 pixel art generator and 128x128 addon pack icon generator.
+Provides specialized pixel art rendering for all 40 add-ons.
 """
 
 from PIL import Image, ImageDraw
@@ -14,6 +14,7 @@ PALETTE = {
     "leather_dark": (94, 52, 25, 255),
     "iron_light": (240, 240, 245, 255),
     "iron_mid": (190, 192, 200, 255),
+    "iron_dark": (110, 112, 120, 255),
     "gold_mid": (245, 190, 30, 255),
     "gold_light": (255, 235, 120, 255),
     "gold_dark": (185, 125, 20, 255),
@@ -27,8 +28,10 @@ PALETTE = {
     "amethyst_light": (210, 150, 255, 255),
     "copper_mid": (205, 105, 75, 255),
     "copper_light": (240, 150, 120, 255),
+    "copper_dark": (150, 70, 50, 255),
     "flame_yellow": (255, 215, 35, 255),
     "flame_orange": (240, 110, 20, 255),
+    "flame_red": (200, 40, 25, 255),
     "ice_cyan": (120, 220, 255, 255),
     "ice_blue": (55, 150, 225, 255),
     "paper_base": (230, 220, 190, 255),
@@ -37,6 +40,10 @@ PALETTE = {
     "crop_dark": (45, 115, 25, 255),
     "ender_teal": (20, 115, 110, 255),
     "ender_light": (50, 220, 170, 255),
+    "sculk_dark": (8, 30, 40, 255),
+    "sculk_cyan": (25, 190, 205, 255),
+    "netherite_dark": (50, 45, 50, 255),
+    "netherite_light": (110, 100, 110, 255),
     "stone_dark": (60, 60, 65, 255),
     "stone_light": (130, 130, 135, 255),
 }
@@ -58,7 +65,7 @@ def generate_pack_icon(addon_title, primary_col, secondary_col):
     r_in = 18
     draw.polygon([(c[0], c[1]-r_in), (c[0]+r_in, c[1]), (c[0], c[1]+r_in), (c[0]-r_in, c[1])], fill=(255, 255, 255, 220), outline=secondary_col, width=2)
 
-    # 4 corner gold bolts
+    # 4 corner gold/steel bolts
     for bx, by in [(14, 14), (113, 14), (14, 113), (113, 113)]:
         draw.rectangle([bx-3, by-3, bx+3, by+3], fill=secondary_col, outline=(20, 20, 20, 255))
 
@@ -84,13 +91,81 @@ def generate_item_texture(icon_type):
         px[7, 7] = PALETTE["gold_mid"]
         px[8, 7] = PALETTE["gold_mid"]
 
-    elif "sword" in t or "blade" in t:
+    elif "wrench" in t:
+        for y in range(2, 7):
+            for x in range(8, 14): px[x, y] = PALETTE["iron_light"]
+        px[10, 4] = (0, 0, 0, 0)
+        px[11, 4] = (0, 0, 0, 0)
+        for i in range(5, 14): px[15 - i, i] = PALETTE["copper_mid"]
+
+    elif "boiler" in t or "macerator" in t or "oven" in t or "mill" in t:
+        for y in range(3, 13):
+            for x in range(3, 13): px[x, y] = PALETTE["copper_mid"] if "boiler" in t else PALETTE["iron_mid"]
+        for x in range(4, 12):
+            px[x, 4] = PALETTE["iron_light"]
+            px[x, 11] = PALETTE["iron_dark"]
+        px[7, 8] = PALETTE["flame_orange"]
+        px[8, 8] = PALETTE["flame_yellow"]
+
+    elif "conveyor" in t or "pipe" in t:
+        for y in range(5, 11):
+            for x in range(2, 14): px[x, y] = PALETTE["iron_dark"]
+        for x in range(3, 13, 3):
+            for y in range(6, 10): px[x, y] = PALETTE["gold_mid"]
+
+    elif "chisel" in t:
+        for i in range(4, 12): px[i, 15 - i] = PALETTE["iron_light"]
+        px[12, 3] = PALETTE["diamond_light"]
+        px[13, 2] = PALETTE["diamond_mid"]
+        px[3, 12] = PALETTE["mid_wood"]
+        px[2, 13] = PALETTE["leather_dark"]
+
+    elif "altar" in t or "monolith" in t:
+        for y in range(5, 14):
+            for x in range(4, 12): px[x, y] = PALETTE["stone_dark"]
+        for x in range(3, 13): px[x, 5] = PALETTE["amethyst_mid"]
+        px[7, 4] = PALETTE["diamond_light"]
+        px[8, 4] = PALETTE["diamond_light"]
+
+    elif "glyph" in t or "runestone" in t or "seal" in t:
+        for y in range(3, 13):
+            for x in range(3, 13):
+                if abs(x - 7.5) + abs(y - 7.5) <= 5: px[x, y] = PALETTE["stone_light"]
+        px[7, 6] = PALETTE["gold_mid"]
+        px[8, 6] = PALETTE["gold_mid"]
+        px[7, 7] = PALETTE["gold_light"]
+        px[8, 7] = PALETTE["gold_light"]
+
+    elif "chassis" in t or "exoskeleton" in t or "aegis" in t or "shield" in t:
+        for y in range(3, 13):
+            for x in range(3, 13): px[x, y] = PALETTE["iron_light"]
+        for y in range(4, 12):
+            for x in range(4, 12): px[x, y] = PALETTE["diamond_mid"] if "barrier" in t or "aegis" in t else PALETTE["iron_dark"]
+        px[7, 7] = PALETTE["gold_light"]
+        px[8, 7] = PALETTE["gold_light"]
+
+    elif "staff" in t or "baton" in t:
+        for i in range(4, 14): px[15 - i, i] = PALETTE["mid_wood"]
+        gem = PALETTE["sculk_cyan"] if "sonic" in t else PALETTE["ruby_mid"]
+        if "bone" in t: gem = PALETTE["paper_base"]
+        for y in range(2, 6):
+            for x in range(10, 14): px[x, y] = gem
+        px[11, 3] = (255, 255, 255, 255)
+
+    elif "cannon" in t or "barrel" in t or "bolt" in t:
+        for y in range(6, 10):
+            for x in range(2, 14): px[x, y] = PALETTE["netherite_dark"]
+        px[13, 7] = PALETTE["iron_light"]
+        px[13, 8] = PALETTE["iron_light"]
+
+    elif "sword" in t or "blade" in t or "battleaxe" in t:
         blade_c = PALETTE["iron_light"]
         edge_c = PALETTE["iron_mid"]
         if "flame" in t: blade_c, edge_c = PALETTE["flame_yellow"], PALETTE["flame_orange"]
         elif "soul" in t: blade_c, edge_c = PALETTE["ice_cyan"], PALETTE["ice_blue"]
         elif "copper" in t: blade_c, edge_c = PALETTE["copper_light"], PALETTE["copper_mid"]
         elif "amethyst" in t: blade_c, edge_c = PALETTE["amethyst_light"], PALETTE["amethyst_mid"]
+        elif "demigod" in t or "ruby" in t: blade_c, edge_c = PALETTE["ruby_mid"], PALETTE["gold_mid"]
 
         for i in range(5, 14):
             px[i, 15 - i] = blade_c
@@ -102,153 +177,39 @@ def generate_item_texture(icon_type):
         px[2, 13] = PALETTE["mid_wood"]
         px[1, 14] = PALETTE["gold_light"]
 
-    elif "dagger" in t:
-        for i in range(5, 11):
-            px[i, 15 - i] = PALETTE["ice_cyan"]
-            px[i + 1, 15 - i] = PALETTE["ice_blue"]
-        px[4, 10] = PALETTE["diamond_mid"]
-        px[3, 11] = PALETTE["mid_wood"]
-        px[2, 12] = PALETTE["gold_mid"]
+    elif "cell" in t or "capacitor" in t or "accumulator" in t or "radar" in t:
+        for y in range(4, 12):
+            for x in range(4, 12): px[x, y] = PALETTE["iron_dark"]
+        for y in range(5, 11):
+            for x in range(5, 11): px[x, y] = PALETTE["flame_yellow"] if "accumulator" in t else PALETTE["ice_cyan"]
+        px[7, 3] = PALETTE["copper_light"]
+        px[8, 3] = PALETTE["copper_light"]
 
-    elif "hammer" in t:
-        for y in range(2, 6):
-            for x in range(8, 14): px[x, y] = PALETTE["iron_mid"]
-        for y in range(3, 5):
-            for x in range(9, 13): px[x, y] = PALETTE["diamond_light"] if "diamond" in t else PALETTE["iron_light"]
-        for i in range(4, 15): px[15 - i, i] = PALETTE["mid_wood"]
-        px[1, 14] = PALETTE["stone_dark"]
+    elif "whistle" in t or "horn" in t:
+        for y in range(6, 11):
+            for x in range(4, 12): px[x, y] = PALETTE["copper_light"] if "horn" in t else PALETTE["gold_mid"]
+        px[3, 7] = PALETTE["iron_light"]
+        px[3, 8] = PALETTE["iron_light"]
 
-    elif "shovel" in t:
-        for y in range(1, 6):
-            for x in range(10, 15): px[x, y] = PALETTE["iron_mid"]
-        for i in range(5, 15): px[15 - i, i] = PALETTE["mid_wood"]
-        px[1, 14] = PALETTE["iron_light"]
-
-    elif "wand" in t or "scepter" in t:
-        gem = PALETTE["amethyst_light"]
-        if "fire" in t: gem = PALETTE["flame_orange"]
-        elif "ice" in t: gem = PALETTE["ice_cyan"]
-        elif "heal" in t or "scepter" in t: gem = PALETTE["emerald_light"]
-        for y in range(2, 6):
-            for x in range(10, 14): px[x, y] = gem
-        px[11, 3] = (255, 255, 255, 255)
-        for i in range(5, 15): px[15 - i, i] = PALETTE["gold_mid"] if "scepter" in t else PALETTE["mid_wood"]
-
-    elif "scroll" in t or "contract" in t:
-        for y in range(3, 13):
-            for x in range(4, 12): px[x, y] = PALETTE["paper_base"]
-        seal = PALETTE["ruby_mid"]
-        if "blue" in t: seal = PALETTE["diamond_mid"]
-        elif "yellow" in t: seal = PALETTE["gold_mid"]
-        elif "creeper" in t: seal = PALETTE["emerald_mid"]
-        elif "zombie" in t: seal = PALETTE["crop_dark"]
-        for x in range(4, 12):
-            px[x, 7] = seal
-            px[x, 8] = seal
-        px[3, 3] = PALETTE["paper_dark"]
-        px[12, 12] = PALETTE["paper_dark"]
-
-    elif "backpack" in t or "pouch" in t:
-        b = PALETTE["leather_mid"]
-        hl = PALETTE["leather_light"]
-        if "ender" in t: b, hl = PALETTE["ender_teal"], PALETTE["ender_light"]
-        elif "expedition" in t: b, hl = PALETTE["diamond_mid"], PALETTE["diamond_light"]
-        for y in range(4, 14):
-            for x in range(3, 13): px[x, y] = b
-        for y in range(5, 13):
-            for x in range(4, 12): px[x, y] = hl
-        px[5, 4] = PALETTE["leather_dark"]
-        px[10, 4] = PALETTE["leather_dark"]
-        px[7, 8] = PALETTE["gold_light"]
-        px[8, 8] = PALETTE["gold_light"]
-
-    elif "ring" in t:
-        for (x, y) in [(6,5),(7,4),(8,4),(9,5),(10,6),(10,7),(10,8),(9,9),(8,10),(7,10),(6,9),(5,8),(5,7),(5,6)]:
-            px[x, y] = PALETTE["gold_mid"]
-        g = PALETTE["emerald_light"] if ("green" in t or "vitality" in t) else PALETTE["diamond_light"]
-        px[7, 3] = g
-        px[8, 3] = (255, 255, 255, 255)
-
-    elif "shield" in t:
-        for y in range(2, 13):
-            for x in range(3, 13): px[x, y] = PALETTE["mid_wood"]
-        m = PALETTE["flame_orange"] if "magma" in t else PALETTE["iron_light"]
-        for x in range(3, 13):
-            px[x, 2] = m
-            px[x, 12] = m
-        for y in range(2, 13):
-            px[3, y] = m
-            px[12, y] = m
-        px[7, 7] = PALETTE["gold_light"]
-        px[8, 7] = PALETTE["gold_light"]
-
-    elif "crop" in t or "strawberry" in t or "corn" in t or "tomato" in t:
-        if "strawberry" in t:
-            for y in range(5, 13):
-                for x in range(5, 11): px[x, y] = PALETTE["ruby_mid"]
-            px[7, 3] = PALETTE["crop_green"]
-            px[8, 3] = PALETTE["crop_green"]
-            px[7, 4] = PALETTE["crop_dark"]
-            px[8, 4] = PALETTE["crop_dark"]
-        elif "corn" in t:
-            for y in range(3, 13):
-                for x in range(6, 10): px[x, y] = PALETTE["gold_mid"]
-            px[6, 12] = PALETTE["crop_green"]
-            px[9, 12] = PALETTE["crop_green"]
-        elif "tomato" in t:
-            for y in range(5, 13):
-                for x in range(4, 12): px[x, y] = PALETTE["ruby_mid"]
-            px[7, 3] = PALETTE["crop_green"]
-            px[8, 3] = PALETTE["crop_green"]
-            px[6, 6] = PALETTE["ruby_light"]
-
-    elif "bow" in t:
-        for (x, y) in [(3,2),(4,3),(4,4),(5,5),(5,6),(5,7),(5,8),(5,9),(5,10),(4,11),(4,12),(3,13)]:
-            px[x, y] = PALETTE["mid_wood"]
-            if "blast" in t: px[x, y] = PALETTE["flame_orange"]
-            elif "viper" in t: px[x, y] = PALETTE["crop_dark"]
-        for y in range(2, 14): px[12, y] = PALETTE["iron_light"]
-
-    elif "arrow" in t or "harpoon_bolt" in t:
-        for i in range(3, 13): px[i, 15 - i] = PALETTE["mid_wood"]
-        px[12, 3] = PALETTE["iron_light"]
-        px[13, 2] = PALETTE["iron_light"]
-        px[3, 12] = PALETTE["iron_mid"]
-        px[2, 13] = PALETTE["paper_base"]
-
-    elif "canteen" in t or "flask" in t or "vial" in t or "elixir" in t:
-        c = PALETTE["flame_orange"] if "fire" in t else PALETTE["ice_cyan"]
-        if "heal" in t: c = PALETTE["ruby_mid"]
-        elif "canteen" in t: c = PALETTE["leather_mid"]
+    elif "serum" in t or "vial" in t or "purifier" in t:
         for y in range(6, 14):
-            for x in range(5, 11): px[x, y] = c
+            for x in range(5, 11): px[x, y] = PALETTE["crop_green"] if "serum" in t else PALETTE["ice_cyan"]
         px[7, 4] = PALETTE["mid_wood"]
         px[8, 4] = PALETTE["mid_wood"]
         px[7, 5] = PALETTE["iron_light"]
         px[8, 5] = PALETTE["iron_light"]
 
-    elif "furniture" in t or "table" in t or "stool" in t or "shelf" in t or "crate" in t:
-        for y in range(4, 13):
-            for x in range(4, 12): px[x, y] = PALETTE["mid_wood"]
-        for x in range(4, 12): px[x, 4] = PALETTE["light_wood"]
-        px[4, 12] = PALETTE["leather_dark"]
-        px[11, 12] = PALETTE["leather_dark"]
-
-    elif "lantern" in t:
-        for y in range(4, 13):
-            for x in range(5, 11): px[x, y] = PALETTE["flame_yellow"] if "brass" in t or "furniture" in t else PALETTE["ice_cyan"]
-        for x in range(5, 11):
-            px[x, 3] = PALETTE["copper_mid"]
-            px[x, 13] = PALETTE["copper_mid"]
-        px[7, 2] = PALETTE["iron_light"]
-        px[8, 2] = PALETTE["iron_light"]
+    elif "bow" in t or "frame" in t:
+        for (x, y) in [(3,2),(4,3),(4,4),(5,5),(5,6),(5,7),(5,8),(5,9),(5,10),(4,11),(4,12),(3,13)]:
+            px[x, y] = PALETTE["netherite_light"] if "compound" in t else PALETTE["mid_wood"]
+        for y in range(2, 14): px[12, y] = PALETTE["iron_light"]
 
     else:
-        # Relic / Gem / Default
-        g = PALETTE["ruby_mid"]
-        if "dragon" in t or "void" in t: g = PALETTE["amethyst_mid"]
-        elif "wrath" in t or "flame" in t: g = PALETTE["flame_yellow"]
-        elif "warp" in t or "water" in t: g = PALETTE["diamond_light"]
+        # Default high-detail crystal / relic
+        g = PALETTE["gold_mid"]
+        if "crystal" in t or "shard" in t: g = PALETTE["diamond_light"]
+        elif "amber" in t: g = PALETTE["flame_yellow"]
+        elif "sculk" in t: g = PALETTE["sculk_cyan"]
         for y in range(4, 12):
             for x in range(4, 12):
                 if abs(x - 7.5) + abs(y - 7.5) <= 4: px[x, y] = g

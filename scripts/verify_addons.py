@@ -1,10 +1,10 @@
 """
-Verification Suite for 20 Minecraft Bedrock Add-ons.
+Verification Suite for 40 Minecraft Bedrock Add-ons (1.21.0+).
 Validates:
-1. Exact count of 20 .mcaddon and 20 .zip archives in dist/
+1. Exact count of 40 .mcaddon and 40 .zip archives in dist/
 2. Archive structure (BP and RP manifests, pack_icon.png, item_texture.json, texts)
 3. JSON syntax and schema requirements for Bedrock 1.21.0+
-4. UUID uniqueness across all 20 add-ons (headers and modules)
+4. UUID uniqueness across all 40 add-ons (headers and modules - 160 total unique UUIDs)
 5. Presence and format of guidebook components and spawn loot tables
 6. Texture dimensions (128x128 pack icons, 16x16 item textures)
 """
@@ -21,14 +21,14 @@ DIST_DIR = os.path.join(ROOT_DIR, "dist")
 
 def run_verification():
     print("=" * 60)
-    print("RUNNING MINECRAFT BEDROCK ADDONS VERIFICATION SUITE")
+    print("RUNNING MINECRAFT BEDROCK 40 ADD-ONS VERIFICATION SUITE")
     print("=" * 60)
 
     mcaddons = sorted([f for f in os.listdir(DIST_DIR) if f.endswith(".mcaddon")])
     zips = sorted([f for f in os.listdir(DIST_DIR) if f.endswith(".zip")])
 
-    assert len(mcaddons) == 20, f"Expected 20 .mcaddon files, found {len(mcaddons)}"
-    assert len(zips) == 20, f"Expected 20 .zip files, found {len(zips)}"
+    assert len(mcaddons) == 40, f"Expected 40 .mcaddon files, found {len(mcaddons)}"
+    assert len(zips) == 40, f"Expected 40 .zip files, found {len(zips)}"
     print(f"✓ Found exactly {len(mcaddons)} .mcaddon and {len(zips)} .zip archives.")
 
     all_uuids = set()
@@ -58,7 +58,6 @@ def run_verification():
             rp_m_uuid = rp_man["modules"][0]["uuid"]
 
             for u in [bp_h_uuid, bp_m_uuid, rp_h_uuid, rp_m_uuid]:
-                # Validate UUID format
                 uuid_obj = uuid.UUID(u)
                 assert str(uuid_obj) == u.lower()
                 assert u not in all_uuids, f"Duplicate UUID detected: {u}"
@@ -113,10 +112,10 @@ def run_verification():
         with zipfile.ZipFile(zip_path, "r") as z:
             assert "README.md" in z.namelist(), f"{zip_path} missing README.md"
 
-        print(f"✓ [{idx+1:02d}/20] Verified: {filename} & {zips[idx]}")
+        print(f"✓ [{idx+1:02d}/40] Verified: {filename} & {zips[idx]}")
 
     print("=" * 60)
-    print(f"ALL 20 ADDONS PASSED VALIDATION! ({len(all_uuids)} Unique UUIDs Verified)")
+    print(f"ALL 40 ADDONS PASSED VALIDATION! ({len(all_uuids)} Unique UUIDs Verified)")
     print("=" * 60)
 
 if __name__ == "__main__":

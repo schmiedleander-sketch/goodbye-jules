@@ -1,7 +1,6 @@
 """
-Core Add-on Generator & Packager.
-Generates all 20 Bedrock Add-ons into .mcaddon and .zip archives,
-with standalone folders for testing and clean directory management.
+Core Add-on Generator & Packager for all 40 Minecraft Bedrock Add-ons (1.21.0+).
+Builds both .mcaddon and .zip archives in dist/
 """
 
 import json
@@ -9,14 +8,19 @@ import os
 import uuid
 import zipfile
 import io
+import sys
+
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from addons_registry import ADDONS
+from addons_registry_complex import COMPLEX_ADDONS
 from texture_art import generate_item_texture, generate_pack_icon
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-ADDONS_DIR = os.path.join(ROOT_DIR, "addons")
 DIST_DIR = os.path.join(ROOT_DIR, "dist")
 
-def build_single_addon(addon, index, output_dirs=True):
+ALL_40_ADDONS = ADDONS + COMPLEX_ADDONS
+
+def build_addon(addon, index):
     addon_id = addon["id"]
     addon_name = addon["name"]
     ns = addon["namespace"]
@@ -24,6 +28,8 @@ def build_single_addon(addon, index, output_dirs=True):
     guidebook = addon["guidebook"]
     items = addon["items"]
     primary_col, secondary_col = addon["colors"]
+
+    prefix = f"{index+1:02d}"
 
     # Manifest UUIDs
     bp_header_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, f"{addon_id}.bp.header.v1"))
@@ -67,7 +73,6 @@ def build_single_addon(addon, index, output_dirs=True):
     pack_icon.save(pack_icon_bytes, format="PNG")
     pack_icon_raw = pack_icon_bytes.getvalue()
 
-    # Collect files in memory
     files_map = {}
     files_map[f"{bp_folder_name}/manifest.json"] = json.dumps(bp_manifest, indent=2).encode("utf-8")
     files_map[f"{bp_folder_name}/pack_icon.png"] = pack_icon_raw
@@ -117,7 +122,7 @@ def build_single_addon(addon, index, output_dirs=True):
             "minecraft:icon": {"textures": {"default": f"{ns}_{i_id}"}},
             "minecraft:display_name": {"value": i_name},
             "minecraft:max_stack_size": i_stack,
-            "minecraft:hand_equipped": (i_damage is not None or "wand" in icon_type or "hammer" in icon_type or "sword" in icon_type or "hook" in icon_type)
+            "minecraft:hand_equipped": (i_damage is not None or "staff" in icon_type or "wand" in icon_type or "hammer" in icon_type or "sword" in icon_type or "wrench" in icon_type or "chisel" in icon_type)
         }
         if i_damage: components["minecraft:damage"] = i_damage
         if i_food:
@@ -156,7 +161,7 @@ def build_single_addon(addon, index, output_dirs=True):
             }
             files_map[f"{bp_folder_name}/recipes/{i_id}_recipe.json"] = json.dumps(recipe_def, indent=2).encode("utf-8")
 
-    # Guidebook shapeless crafting recipe: Book + Paper
+    # Guidebook recipe: Book + Paper
     guide_recipe = {
         "format_version": "1.21.0",
         "minecraft:recipe_shapeless": {
@@ -239,7 +244,7 @@ def build_single_addon(addon, index, output_dirs=True):
 ## In-Game Guide Book
 - **Title**: {guidebook['title']}
 - **Author**: {guidebook['author']}
-- **Spawn Behavior**: Players receive this guidebook upon entering the world, and can recraft it anytime using Book + Paper.
+- **Spawn Behavior**: Players receive this guidebook automatically upon joining the world, and can recraft it anytime using Book + Paper.
 
 ### Guidebook Pages
 {chr(10).join(f"**Page {i+1}:** {p}" for i, p in enumerate(guidebook['pages']))}
@@ -258,37 +263,25 @@ def build_single_addon(addon, index, output_dirs=True):
 
     # Export archives into dist/
     os.makedirs(DIST_DIR, exist_ok=True)
-    mcaddon_file = os.path.join(DIST_DIR, f"{index+1:02d}_{addon_id}.mcaddon")
-    zip_file = os.path.join(DIST_DIR, f"{index+1:02d}_{addon_id}.zip")
+    mcaddon_file = os.path.join(DIST_DIR, f"{prefix}_{addon_id}.mcaddon")
+    zip_file = os.path.join(DIST_DIR, f"{prefix}_{addon_id}.zip")
 
-    # Write .mcaddon
     with zipfile.ZipFile(mcaddon_file, "w", zipfile.ZIP_DEFLATED) as zf:
         for path_key, content in files_map.items():
             if path_key != "README.md":
                 zf.writestr(path_key, content)
 
-    # Write .zip
     with zipfile.ZipFile(zip_file, "w", zipfile.ZIP_DEFLATED) as zf:
         for path_key, content in files_map.items():
             zf.writestr(path_key, content)
 
-    # Optionally write unpacked directory if output_dirs is True
-    if output_dirs:
-        addon_dir = os.path.join(ADDONS_DIR, f"{index+1:02d}_{addon_id}")
-        for path_key, content in files_map.items():
-            full_out = os.path.join(addon_dir, path_key)
-            os.makedirs(os.path.dirname(full_out), exist_ok=True)
-            with open(full_out, "wb") as f:
-                f.write(content)
-
-    print(f"[{index+1:02d}/20] Built & Packaged: {addon_name}")
-
+    print(f"[{prefix}/40] Packaged: {addon_name}")
 
 def main():
-    print(f"Building {len(ADDONS)} Minecraft Bedrock Add-ons...")
-    for idx, addon in enumerate(ADDONS):
-        build_single_addon(addon, idx, output_dirs=False)
-    print("Done! All 20 add-ons packaged successfully.")
+    print(f"Starting build for all {len(ALL_40_ADDONS)} Minecraft Bedrock Add-ons...")
+    for idx, addon in enumerate(ALL_40_ADDONS):
+        build_addon(addon, idx)
+    print("Done! All 40 add-ons built and packaged into dist/.")
 
 if __name__ == "__main__":
     main()
